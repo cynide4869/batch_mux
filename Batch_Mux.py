@@ -14,6 +14,19 @@ def create_folder():
 		output_directory.mkdir()
 
 
+def prerequisite():
+
+	print("\nChoose the properties to ignore which are already present in the file (Remove properties in the final output)")
+	print("--1) Chapters\n--2) Attachments (Fonts)\n--3) Global Tags\n--4) Track Tags")
+	existing = input("Enter the numbers (Enter 0 to skip this menu): ")
+
+	print("\nChoose the properties to ignore which are to be appended to the file (Won't append to the final output)")
+	print("--1) Chapters\n--2) Attachments (Fonts)\n--3) Subtitles")
+	insert = input("Enter the numbers (Enter 0 to skip this menu, adds all the files present in the attachments folder): ")
+
+	return [existing, insert]
+
+
 def get_list(source_directory):
 	'''Returns a list of items present in a directory specified by the parameter'''
 
@@ -94,14 +107,7 @@ def main():
 	create_folder()
 	mkvfiles = get_list(mkvfiles_directory)
 	attachments = get_list(attachments_directory)
-
-	print('\nChoose the properties to ignore which are already present in the file (Remove properties in the final output)')
-	print('--1) Chapters\n--2) Attachments (Fonts)\n--3) Global Tags\n--4) Track Tags')
-	existing = input('Enter the numbers (Enter 0 to skip this menu): ')
-
-	print('\nChoose the properties to ignore which are to be appended to the file (Won\'t append to the final output)')
-	print('--1) Chapters\n--2) Attachments (Fonts)\n--3) Subtitles')
-	insert = input('Enter the numbers (Enter 0 to skip this menu, adds all the files present in the attachments folder): ')
+	existing, insert = prerequisite()
 
 	for i, mkvfile in enumerate(mkvfiles):
 		print('---------------------------------------------------------------------------')
