@@ -1,5 +1,6 @@
 # Muxes subs, attachments and chapters into a mkvfile
 from pathlib import Path
+import subprocess
 import pymkv
 
 parent_directory = (Path.cwd()).resolve()
@@ -13,6 +14,9 @@ def create_folder():
 	if not output_directory.exists():
 		output_directory.mkdir()
 
+	if not attachments_directory.exists():
+		attachments_directory.mkdir()
+
 
 def prerequisite():
 
@@ -23,6 +27,25 @@ def prerequisite():
 	print("\nChoose the properties to ignore which are to be appended to the file (Won't append to the final output)")
 	print("--1) Chapters\n--2) Attachments (Fonts)\n--3) Subtitles")
 	insert = input("Enter the numbers (Enter 0 to skip this menu, adds all the files present in the attachments folder): ")
+
+	links = []
+	print('\nEnter 0 to skip the next menu if "append" folder is already populated')
+	while True:
+		link = input('Enter download link (Enter 0 to stop): ')
+		if link == "0":
+			break
+		
+		links.append(link)
+  
+	if links:
+		print('Downloading...')
+		for link in links:
+			subprocess.run('wget "{}" -P "{}"'.format(link, parent_directory), shell=True)
+
+		print('Extracting...')
+		for file in parent_directory.iterdir():
+			if file.suffix in ['.7z', '.zip']:
+				subprocess.run('7z x "{}" -o"{}"'.format(file.name, attachments_directory), shell=True)
 
 	return [existing, insert]
 
@@ -105,9 +128,9 @@ def ignore_existing(mkv, choice):
 
 def main():
 	create_folder()
+	existing, insert = prerequisite()
 	mkvfiles = get_list(mkvfiles_directory)
 	attachments = get_list(attachments_directory)
-	existing, insert = prerequisite()
 
 	for i, mkvfile in enumerate(mkvfiles):
 		print('---------------------------------------------------------------------------')

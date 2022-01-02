@@ -54,6 +54,15 @@ or just run
 pip install pymkv
 ```
 
+## 7zip (Optional)
+
+During the execution of the file, a prompt about the attachments would be asked, if the link is pasted then 7zip is used to extract the attachments folders and place them into the "append" folder.
+If the "append" folder is already populated, this installation can be skipped.
+
+7zip can be installed from the links mentioned below
+> If installed, make sure 7zip has been added to PATH
+
+
 > Make sure mkvmerge has been added to PATH or copy mkvmerge.exe to the root (or parent) folder for the script to detect mkvmerge
 
 # Run
@@ -67,4 +76,5 @@ python Batch_Mux.py
 
 [pymkv docs](https://pymkv.shel.dev/en/stable/)\
 [mkvtoolnix](https://mkvtoolnix.download/downloads.html)\
-[python](https://www.python.org/downloads/)
+[python](https://www.python.org/downloads/)\
+[7zip](https://www.7-zip.org/)
