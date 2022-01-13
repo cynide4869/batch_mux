@@ -7,38 +7,40 @@ Follows the animetosho attachments download folder structure.\
 ```
 -------Folder Structure-------
 
-root
-|
-|--append
-|  |--attachments_folder_1
-|  |  |--attachments
-|  |  |  |--font1.ttf
-|  |  |  `--font2.ttf
-|  |  |
-|  |  |--subtitle1.ass
-|  |  |--subtitle2.ass
-|  |  |
-|  |  `--chapters.xml
-|  |
-|  |--attachments_folder_2
-|  |  |--attachments
-|  |  |  |--font1.ttf
-|  |  |  `--font2.ttf
-|  |  |
-|  |  |--subtitle1.ass
-|  |  |--subtitle2.ass
-|  |  |
-|  `  `--chapters.xml
-|
-|--mkvfiles
-|  |--mkv1.mkv
-|  `--mkv2.mkv
-|
-|--output (will be created)
-|  |--mkvout1.mkv
-|  `--mkvout2.mkv
-|
-`--Batch_Mux.py
+.
+├── append
+│   ├── [BlurayDesuYo] Shingeki no Kyojin (The Final Season) - 60 (BD 1920x1080 x265 10bit FLAC) [F97B223C].mkv
+│   │   ├── attachments
+│   │   │   ├── AGARAMONDPRO-REGULAR.OTF
+│   │   │   ├── ANGIE-BOLDITALIC.TTF
+│   │   │   ├── ANGIE-BOLD.TTF
+│   │   │   ├── BSOD.TTF
+│   │   │   ├── CLEARFACESSIBOLD.TTF
+│   │   │   ├── GAR-A-MONDTALL-LIGHT.TTF
+│   │   │   └── KINESISSTD-BLACKITALIC.OTF
+│   │   ├── chapters.xml
+│   │   ├── tags.xml
+│   │   └── track3_eng.ass
+│   └── [BlurayDesuYo] Shingeki no Kyojin (The Final Season) - 61 (BD 1920x1080 x265 10bit FLAC) [93A2A975].mkv
+│       ├── attachments
+│       │   ├── AGARAMONDPRO-REGULAR.OTF
+│       │   ├── ANGIE-BOLDITALIC.TTF
+│       │   ├── ANGIE-BOLD.TTF
+│       │   ├── BSOD.TTF
+│       │   ├── CLEARFACESSIBOLD.TTF
+│       │   ├── GAR-A-MONDTALL-LIGHT.TTF
+│       │   └── KINESISSTD-BLACKITALIC.OTF
+│       ├── chapters.xml
+│       ├── tags.xml
+│       └── track3_eng.ass
+├── mkvfiles
+│   ├── [Kawaiika-Raws] Shingeki no Kyojin (2020) 01 [BDRip 1920x1080 HEVC FLAC].mkv [CDBF88C6]
+│   └── [Kawaiika-Raws] Shingeki no Kyojin (2020) 02 [BDRip 1920x1080 HEVC FLAC].mkv [42248FF4]
+├── output (will be created)
+│    ├── [Kawaiika-Raws] Shingeki no Kyojin (2020) 01 [BDRip 1920x1080 HEVC FLAC].mkv [E5B40389]
+│    └── [Kawaiika-Raws] Shingeki no Kyojin (2020) 02 [BDRip 1920x1080 HEVC FLAC].mkv [9EFD583F]
+└──Batch_Mux.py
+
 ```
 
 The above folder structure is to be followed.
