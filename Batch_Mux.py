@@ -61,6 +61,7 @@ def append(attachments_folder, mkv, insert):
 	'''Appends the fonts, subtitle tracks and chapters if present'''
 
 	font_folders = []
+	fonts_present = []
 	subs = []
 	chapter = None
 
@@ -73,13 +74,17 @@ def append(attachments_folder, mkv, insert):
 			chapter = item
 		else:
 			continue
-
+	
+	filename = mkv.tracks[0]._file_path.split('\\')[-1]
+	mkvmerge_json = subprocess.run(["mkvmerge", "-J", f"\"{filename}\""], capture_output=True, text=True, shell=True)
+	fonts = mkvmerge_json["attachments"]
 	if font_folders:
 		print('\nAdding fonts:')
 		for font_folder in font_folders:
 			for font in font_folder.iterdir():
-				print('--{}'.format(font.name))
-				mkv.add_attachment(str(font))
+				if font not in fonts:
+					print('--{}'.format(font.name))
+					mkv.add_attachment(str(font))
 	else:
 		print('\nNo fonts to append')
 
